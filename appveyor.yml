@@ -5,7 +5,7 @@ test_script:
     for v in "${RUBY_VERSIONS[@]}"; do
         rvm use ${v} &&
         ruby --version ||
-            { echo "[WARNING] Cannot install ${v}." 1>&2; exit 1;}
+            { echo "[WARNING] Cannot use ${v}." 1>&2; exit 1;}
     done
 
 build: off
