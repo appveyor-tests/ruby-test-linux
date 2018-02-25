@@ -1,0 +1,15 @@
+environment:
+  bundler_version: 1.16.1
+  gem_version: 2.7.4
+
+test_script:
+- sh: |
+    declare RUBY_VERSIONS=(  "ruby-2.2" "ruby-2.3" "ruby-2.4" "ruby-2.5.0" "ruby-head" )
+    for v in "${RUBY_VERSIONS[@]}"; do
+        rvm use ${v} &&
+        ruby --version ||
+            { echo "[WARNING] Cannot install ${v}." 1>&2; exit 1;}
+    done
+
+
+build: off
