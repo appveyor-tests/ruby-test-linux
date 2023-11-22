@@ -4,10 +4,10 @@ init:
  - sh: echo $APPVEYOR_BUILD_WORKER_IMAGE
  - sh: echo $APPVEYOR_BUILD_WORKER_CLOUD
  
- - rvm pkg install openssl
- - ls -lr $HOME/.rvm/usr
- - ls -lr /usr/lib/x86_64-linux-gnu
- - rvm reinstall ruby-3.2.2 --with-openssl-dir=$HOME/.rvm/usr
+ #- rvm pkg install openssl
+ #- ls -lr $HOME/.rvm/usr
+ #- ls -lr /usr/lib/x86_64-linux-gnu
+ - rvm reinstall ruby-3.2.2 --with-openssl-dir=/usr/lib/x86_64-linux-gnu
 
 test_script:
 
