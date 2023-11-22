@@ -6,7 +6,7 @@ init:
 
 test_script:
 - rvm pkg install openssl
-- rvm install ruby-3.2.2 --with-openssl-dir=$HOME/.rvm/usr
+- rvm reinstall ruby-3.2.2 --with-openssl-dir=$HOME/.rvm/usr
 - rvm list
 - sh: |
     [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
