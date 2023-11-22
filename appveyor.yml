@@ -3,10 +3,14 @@ init:
  - ps: Update-AppveyorBuild -Message "Image '$env:APPVEYOR_BUILD_WORKER_IMAGE'@'$env:APPVEYOR_BUILD_WORKER_CLOUD' cloud. $env:APPVEYOR_REPO_COMMIT_MESSAGE"
  - sh: echo $APPVEYOR_BUILD_WORKER_IMAGE
  - sh: echo $APPVEYOR_BUILD_WORKER_CLOUD
+ 
+ - rvm pkg install openssl
+ - ls -lr $HOME/.rvm/usr
+ - ls -lr /usr/lib/x86_64-linux-gnu
+ - rvm reinstall ruby-3.2.2 --with-openssl-dir=$HOME/.rvm/usr
 
 test_script:
-- rvm pkg install openssl
-- rvm reinstall ruby-3.2.2 --with-openssl-dir=$HOME/.rvm/usr
+
 - rvm list
 - sh: |
     [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
