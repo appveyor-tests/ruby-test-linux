@@ -5,6 +5,8 @@ init:
  - sh: echo $APPVEYOR_BUILD_WORKER_CLOUD
 
 test_script:
+- rvm pkg install openssl
+- rvm install ruby-2.7.x --with-openssl-dir=$HOME/.rvm/usr
 - rvm list
 - sh: |
     [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
